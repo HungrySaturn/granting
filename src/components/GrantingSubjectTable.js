@@ -1,18 +1,13 @@
 import React from 'react';
 import { Trash } from 'react-bootstrap-icons';
 import  { EditButton } from './EditButton';
-import { SubjectRemoveButton } from './SubjectRemoveButton'; // import the new component
-import  { SubjectDeleteButton } from './SubjectDelete';
-import { DeleteButton } from 'components/DeleteButton';
+
 
 
 
 const GrantingSubjectTable = ({ subjects, actions }) => {
     
-    const onclick = (subject) => {
-        const payload = {subject: subject}
-        actions.subjectAsyncRemove(payload)
-    }
+    
     return(
     <table style={{border: '1px solid black', width: '100%', textAlign: 'center'}}>
         <thead>
@@ -31,9 +26,7 @@ const GrantingSubjectTable = ({ subjects, actions }) => {
                     <td rowSpan={subject.semesters.length} style={{border: '1px solid black'}}>
                     {subject.name}
                     <EditButton subject={subject} actions={actions}/>
-                    <SubjectRemoveButton subject={subject} actions={actions}/>
-                    <DeleteButton onClick={() => onclick(subject)}><Trash /> SmažPředmět</DeleteButton><br/>
-                    <SubjectDeleteButton subject={subject} actions={actions} />
+                    
                 </td>
                         
 
